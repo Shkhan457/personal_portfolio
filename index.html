@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saman Haider | Personal Portfolio</title>
+<style>
+:root{--bg:#100d2b;--bg2:#1b1544;--purple:#a855f7;--purple2:#7c3aed;--ink:#17152e;--muted:#62617b;--pale:#f7f4ff;--white:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:Arial,Helvetica,sans-serif;color:var(--ink);line-height:1.6;background:#fff}
+a{text-decoration:none;color:inherit}a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #c084fc;outline-offset:3px}
+.container{width:min(1120px,calc(100% - 40px));margin:auto}
+header{position:sticky;top:0;z-index:20;background:rgba(16,13,43,.97);color:white;border-bottom:1px solid #ffffff20}
+nav{height:70px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:1.55rem;font-weight:800;letter-spacing:-.7px}.logo span{color:var(--purple)}
+.nav-links{display:flex;gap:30px;list-style:none;align-items:center}
+.nav-links a{font-size:.95rem;color:#eeeafc;transition:.2s}.nav-links a:hover{color:#c084fc}
+.menu-btn,.theme-btn{background:transparent;border:1px solid #ffffff40;color:white;border-radius:9px;padding:8px 11px;cursor:pointer;font-size:1.1rem}
+.menu-btn{display:none}
+.hero{color:white;background:radial-gradient(circle at 85% 35%,#4c1d95 0,transparent 32%),linear-gradient(120deg,#171332,#100d2b);padding:76px 0 82px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.kicker{color:#c084fc;font-size:.9rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase}
+h1{font-size:clamp(2.7rem,6vw,4.6rem);line-height:1.08;letter-spacing:-2px;margin:12px 0}
+h1 span{color:#b66aff}.hero h2{font-size:1.45rem;margin-bottom:15px}.hero p{max-width:560px;color:#e0dcf5;font-size:1.05rem}
+.actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:27px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:10px;padding:12px 19px;font-weight:700;border:1px solid transparent;cursor:pointer;transition:transform .2s,background .2s}
+.btn:hover{transform:translateY(-2px)}.btn-main{background:linear-gradient(120deg,#9333ea,#6d28d9);color:white;box-shadow:0 8px 20px #7c3aed40}.btn-outline{border-color:#c4b5fd;color:white;background:transparent}
+.hero-art{min-height:270px;display:grid;place-items:center;position:relative}
+.laptop{width:min(360px,100%);height:215px;position:relative;display:flex;justify-content:center;align-items:center}
+.screen{height:190px;width:300px;border:9px solid #8b8be8;border-bottom-width:15px;border-radius:17px;background:linear-gradient(145deg,#24265b,#101329);box-shadow:0 0 55px #8b5cf655;display:grid;place-items:center;color:#a78bfa;font-size:4.4rem;font-weight:bold}
+.base{position:absolute;bottom:0;width:360px;max-width:100%;height:17px;border-radius:3px 3px 18px 18px;background:linear-gradient(90deg,#777ee7,#d1d5ff,#777ee7)}
+.float-tag{position:absolute;background:#241d58;border:1px solid #8b5cf6;color:#e9d5ff;padding:9px 13px;border-radius:12px;font-weight:700;box-shadow:0 8px 24px #0003}
+.tag-html{top:5px;left:5%}.tag-css{top:30px;right:3%}.tag-js{bottom:22px;left:3%}
+.section{padding:76px 0}.section-title{text-align:center;margin-bottom:38px}.section-title .kicker{margin-bottom:7px}.section-title h2{font-size:clamp(2rem,4vw,2.7rem);line-height:1.2;letter-spacing:-1px}.section-title p{color:var(--muted);margin:10px auto 0;max-width:620px}
+.about{background:#fff}.about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:55px;align-items:start}
+.about-copy h3,.skills h3,.goals h3{font-size:1.25rem;margin-bottom:12px}.about-copy p{color:var(--muted)}
+.skill-pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:15px}.skill-pills span{padding:8px 13px;border-radius:999px;background:#f0e7ff;color:#6425a7;font-weight:700;font-size:.9rem}
+.goal-list{list-style:none;display:grid;gap:12px}.goal-list li{display:flex;gap:10px;align-items:flex-start;color:#4b4963}.check{background:#eee4ff;color:#7c3aed;width:25px;height:25px;border-radius:50%;display:grid;place-items:center;flex-shrink:0;font-weight:bold}
+.projects{background:linear-gradient(140deg,#f7f4ff,#f1edff)}.project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.project-card{background:white;border:1px solid #e4d8ff;border-radius:17px;overflow:hidden;box-shadow:0 8px 25px #35206a0b;transition:transform .25s,box-shadow .25s}
+.project-card:hover{transform:translateY(-5px);box-shadow:0 18px 35px #35206a18}
+.project-visual{height:155px;display:grid;place-items:center;background:linear-gradient(135deg,#251b59,#6d28d9);color:#fff;font-size:3.6rem}
+.project-visual.todo{background:linear-gradient(135deg,#ecfdf5,#bbf7d0);color:#16804b}.project-visual.portfolio{background:linear-gradient(135deg,#ede9fe,#c4b5fd);color:#6d28d9}
+.project-content{padding:22px}.project-content h3{font-size:1.2rem;margin-bottom:9px}.project-content p{color:var(--muted);font-size:.95rem;min-height:74px}
+.tech{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0}.tech span{background:#f1e8ff;color:#6b21a8;border-radius:6px;padding:4px 8px;font-size:.77rem;font-weight:700}
+.project-actions{display:flex;gap:9px;flex-wrap:wrap}.project-actions .btn{font-size:.84rem;padding:9px 12px}.project-actions .btn-main{flex:1}.btn-light{border-color:#ddd6fe;color:#5b21b6;background:white}
+.project-note{text-align:center;color:#716b84;font-size:.86rem;margin-top:24px}
+.contact{background:linear-gradient(120deg,#171332,#21154c);color:white}.contact .section-title p{color:#d0cbe4}
+.contact-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px;align-items:start}.contact-info h3{font-size:1.35rem;margin-bottom:12px}.contact-info p{color:#d0cbe4;margin-bottom:18px}
+.contact-item{display:flex;gap:12px;align-items:center;margin:15px 0;color:#eee8ff;overflow-wrap:anywhere}.contact-icon{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:#38226d;color:#d8b4fe;font-size:1.1rem}
+form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}label{font-size:.9rem;color:#e6defd;font-weight:700}
+input,textarea{font:inherit;width:100%;border:1px solid #5c4b88;background:#fff;color:#201a3b;border-radius:9px;padding:12px 13px;outline:none}
+input:focus,textarea:focus{border-color:#c084fc;box-shadow:0 0 0 3px #a855f72c}textarea{resize:vertical;min-height:110px}
+form button{grid-column:1/-1;justify-self:start}.form-message{grid-column:1/-1;color:#d8b4fe;min-height:25px;font-size:.92rem}
+footer{background:#0c0a20;color:#d4cce9;padding:20px 0;font-size:.9rem}.footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center}.footer-inner a{color:#c084fc}
+.back-top{position:fixed;right:22px;bottom:22px;width:45px;height:45px;border:0;border-radius:50%;background:#9333ea;color:white;font-size:1.3rem;box-shadow:0 7px 20px #0003;cursor:pointer;display:none;z-index:15}
+body.light-mode{--bg:#fff;--ink:#17152e;background:#fff}body.light-mode header{background:rgba(255,255,255,.97);color:#17152e;border-color:#e9e3f8}body.light-mode .nav-links a,body.light-mode .theme-btn{color:#292044}body.light-mode .theme-btn{border-color:#d8c9f8}body.light-mode .nav-links{background:#fff}body.light-mode .nav-links a:hover{color:#7c3aed}
+@media(max-width:850px){.hero-grid{grid-template-columns:1fr}.hero-art{min-height:235px}.about-grid,.contact-grid{grid-template-columns:1fr;gap:32px}.project-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.container{width:calc(100% - 30px)}nav{height:64px}.menu-btn{display:inline-block}.nav-links{display:none;position:absolute;top:64px;left:0;right:0;background:#151133;padding:20px 25px;flex-direction:column;align-items:flex-start;gap:16px}.nav-links.open{display:flex}.hero{padding:60px 0}.hero-art{transform:scale(.88);margin:0 -15px}.section{padding:58px 0}.project-grid{grid-template-columns:1fr}.project-content p{min-height:0}form{grid-template-columns:1fr}.field.full,form button,.form-message{grid-column:1}.footer-inner{flex-direction:column;text-align:center}.section-title{margin-bottom:30px}}
+</style>
+</head>
+<body>
+<header>
+  <nav class="container">
+    <a href="#home" class="logo"> &lt;/&gt; Saman <span>Khan</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li><li><a href="#about">About</a></li><li><a href="#projects">Projects</a></li><li><a href="#contact">Contact</a></li>
+    </ul>
+    <div style="display:flex;gap:9px"><button class="theme-btn" id="themeBtn" aria-label="Toggle light and dark mode">☼</button><button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button></div>
+  </nav>
+</header>
+<main>
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div>
+      <div class="kicker">Hello, I'm</div>
+      <h1>Saman <span>Haider</span></h1>
+      <h2>Web Developer &amp; CS Learner</h2>
+      <p>I'm a Computer Science student with a passion for creating simple and useful web applications. I enjoy learning new technologies and turning ideas into real projects.</p>
+      <div class="actions"><a class="btn btn-main" href="#projects">🚀 View My Projects</a><a class="btn btn-outline" href="#contact">✉ Contact Me</a></div>
+    </div>
+    <div class="hero-art" aria-label="Decorative coding illustration">
+      <span class="float-tag tag-html">HTML5</span><span class="float-tag tag-css">CSS3</span><span class="float-tag tag-js">JS</span>
+      <div class="laptop"><div class="screen">&lt;/&gt;</div><div class="base"></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section about" id="about">
+  <div class="container">
+    <div class="section-title"><div class="kicker">A little about me</div><h2>About Me</h2></div>
+    <div class="about-grid">
+      <div class="about-copy"><h3>Who I Am</h3><p>I am a computer science student who is currently learning web development. I love exploring new technologies and building projects that solve real problems. My goal is to become a skilled developer and work on meaningful projects in the future.</p></div>
+      <div class="skills"><h3>My Skills</h3><div class="skill-pills"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Responsive Design</span><span>Git &amp; GitHub</span><span>Python</span><span>C++</span></div>
+      <div class="goals" style="margin-top:28px"><h3>My Goals</h3><ul class="goal-list"><li><span class="check">✓</span>Become a professional web developer</li><li><span class="check">✓</span>Build real-world projects</li><li><span class="check">✓</span>Learn modern frameworks and tools</li><li><span class="check">✓</span>Keep learning and growing in tech</li></ul></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section projects" id="projects">
+  <div class="container">
+    <div class="section-title"><div class="kicker">What I've been building</div><h2>My Projects</h2><p>These projects showcase the kinds of front-end work I have practised. Replace any sample details with your own completed course projects before submitting.</p></div>
+    <div class="project-grid">
+      <article class="project-card"><div class="project-visual">▧</div><div class="project-content"><h3>Responsive Landing Page</h3><p>A modern landing page with a clear layout, product information, and call-to-action buttons for different screen sizes.</p><div class="tech"><span>HTML</span><span>CSS</span><span>JavaScript</span></div><div class="project-actions"><a class="btn btn-main" href="https://github.com/Shkhan457/landing_page.git" target="_blank" rel="noopener">Project Code ↗</a></div></div></article>
+      <article class="project-card"><div class="project-visual todo">☑</div><div class="project-content"><h3>Interactive To-Do List</h3><p>A task manager that allows users to add tasks, mark tasks as completed, and delete tasks using JavaScript.</p><div class="tech"><span>HTML</span><span>CSS</span><span>JavaScript</span></div><div class="project-actions"><a class="btn btn-main" href="https://github.com/Shkhan457/to-do-list.git" target="_blank" rel="noopener">Project Code ↗</a></div></div></article>
+      <article class="project-card"><div class="project-visual portfolio">▤</div><div class="project-content"><h3>Personal Portfolio</h3><p>A personal website to introduce me, share my skills and goals, and make it easy for visitors to contact me.</p><div class="tech"><span>HTML</span><span>CSS</span><span>JavaScript</span></div><div class="project-actions"><a class="btn btn-main" href="https://github.com/Shkhan457/personal_portfolio.git" target="_blank" rel="noopener">Project Code ↗</a></div></div></article>
+    </div>
+    
+  </div>
+</section>
+
+<section class="section contact" id="contact">
+  <div class="container">
+    <div class="section-title"><div class="kicker">Let's connect</div><h2>Contact Me</h2><p>Have a question or an opportunity? Feel free to send a message.</p></div>
+    <div class="contact-grid">
+      <div class="contact-info"><h3>Get in touch</h3><p>I'm open to learning opportunities, feedback, and connecting with other developers.</p>
+        <div class="contact-item"><span class="contact-icon">✉</span><a href="mailto:samanyycs@gmail.com">samanyycs@gmail.com</a></div>
+        <div class="contact-item"><span class="contact-icon">⌘</span><a href="https://github.com/Shkhan457" target="_blank" rel="noopener">github.com/Shkhan457</a></div>
+        <div class="contact-item"><span class="contact-icon">⌖</span><span>Pakistan</span></div>
+      </div>
+      <form id="contactForm">
+        <div class="field"><label for="name">Your Name</label><input id="name" name="name" placeholder="Enter your name" required></div>
+        <div class="field"><label for="email">Your Email</label><input id="email" name="email" type="email" placeholder="you@example.com" required></div>
+        <div class="field full"><label for="message">Your Message</label><textarea id="message" name="message" placeholder="Write your message..." required></textarea></div>
+        <button class="btn btn-main" type="submit">➤ Send Message</button><p class="form-message" id="formMessage" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+<footer><div class="container footer-inner"><p>© <span id="year"></span> Saman Haider. All rights reserved.</p><p>Built with ♥ using HTML, CSS &amp; JavaScript</p><a href="#home">Back to top ↑</a></div></footer>
+<button class="back-top" id="backTop" aria-label="Back to top">↑</button>
+<script>
+const menuBtn=document.getElementById('menuBtn');
+const navLinks=document.getElementById('navLinks');
+menuBtn.addEventListener('click',()=>{const open=navLinks.classList.toggle('open');menuBtn.setAttribute('aria-expanded',String(open));menuBtn.textContent=open?'✕':'☰';});
+document.querySelectorAll('.nav-links a').forEach(link=>link.addEventListener('click',()=>{navLinks.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');menuBtn.textContent='☰';}));
+document.getElementById('year').textContent=new Date().getFullYear();
+document.getElementById('themeBtn').addEventListener('click',()=>{document.body.classList.toggle('light-mode');const light=document.body.classList.contains('light-mode');document.getElementById('themeBtn').textContent=light?'☾':'☼';});
+const form=document.getElementById('contactForm'),formMessage=document.getElementById('formMessage');
+form.addEventListener('submit',event=>{event.preventDefault();const name=document.getElementById('name').value.trim();const email=document.getElementById('email').value.trim();const message=document.getElementById('message').value.trim();if(!name||!email||!message){formMessage.textContent='Please fill in all fields.';return;}formMessage.textContent=`Thank you, ${name}! Your form was validated. This demo does not send emails yet.`;form.reset();});
+const backTop=document.getElementById('backTop');
+window.addEventListener('scroll',()=>{backTop.style.display=window.scrollY>350?'block':'none';});
+backTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+</script>
+</body>
+</html>
